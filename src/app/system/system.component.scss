@@ -1,9 +1,16 @@
+@use "sass:map";
+
+@use '@angular/material' as mat;
+
+
 .mat-toolbar {
   height: 56px;
   padding: 4px 16px;
+  position: sticky;
 }
+
 .container {
-  background-color: black;
+  background-color: #424242;
   width: 100%;
-  height:100%
+  height: calc(100% - 56px)
 }
