@@ -9,6 +9,5 @@
 
 <div class="container">
   <router-outlet></router-outlet>
-  SystemComponent
-  <kb-board></kb-board>
+  <kb-board *ngFor="let column of columns" [columnTitle]="column"></kb-board>
 </div>

@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
 
 @Component({
   selector: 'kb-board',
@@ -6,4 +6,10 @@ import {Component} from "@angular/core";
   styleUrls: ['board.component.scss']
 })
 
-export class BoardComponent {}
+export class BoardComponent {
+
+  @Input() columnTitle: { title: string }
+
+}
+
+

@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import {ColumnInterface} from "../core/column.interface";
 
 @Component({
   selector: 'kb-system',
@@ -7,6 +8,11 @@ import {Component} from "@angular/core";
 })
 
 export class SystemComponent {
-
+  columns: Array<{ title: string }> = [
+    {title: 'aaaaa'},
+    {title: 'ssssss'},
+    {title: 'ddddd'},
+    {title: 'ooooo'}
+  ]
 }
 

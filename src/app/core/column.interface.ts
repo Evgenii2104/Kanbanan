@@ -1,4 +1,4 @@
-export interface BoardInterface {
+export interface ColumnInterface {
   title: string,
   column: string
 }
