@@ -9,12 +9,15 @@ import {SystemComponent} from "../system.component";
 
 export class BoardComponent implements OnInit {
   //@Input() column: { title: string }
-   columns: any = []
+   //columns: any = []
+  @Input() columns: { title: string }[]
 
-  constructor(private col: SystemComponent) {
+  constructor(
+    //private col: SystemComponent
+  ) {
   }
   ngOnInit() {
-    this.col.columns.forEach((el: any) => this.columns.push(el))
+    //this.col.columns.forEach((el: any) => this.columns.push(el))
   }
 }
 
