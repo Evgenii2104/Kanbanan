@@ -1,4 +1,5 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
+import {SystemComponent} from "../system.component";
 
 @Component({
   selector: 'kb-board',
@@ -6,10 +7,15 @@ import {Component, Input} from "@angular/core";
   styleUrls: ['board.component.scss']
 })
 
-export class BoardComponent {
+export class BoardComponent implements OnInit {
+  //@Input() column: { title: string }
+   columns: any = []
 
-  @Input() columnTitle: { title: string }
-
+  constructor(private col: SystemComponent) {
+  }
+  ngOnInit() {
+    this.col.columns.forEach((el: any) => this.columns.push(el))
+  }
 }
 
 

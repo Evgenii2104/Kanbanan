@@ -22,17 +22,10 @@
   height: calc(100% - 64px);
   position: relative;
   float: left;
+}
+.kb-board{
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-around;
-
-}
-.kb-board {
-  flex-basis: auto;
-  height: 100%;
-  font-size: 500px;
-  min-width: 300px;
-  padding: 3px 15px 0;
-  border-radius: 5px;
 }
