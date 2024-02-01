@@ -1,8 +1,14 @@
-@use "sass:map";
+//todo: найти ипользование фона в англяр/материал
+//@use "sass:map";
+//@use '@angular/material' as mat;
 
-@use '@angular/material' as mat;
-
-
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
 .mat-toolbar {
   height: 56px;
   padding: 4px 16px;
@@ -12,5 +18,14 @@
 .container {
   background-color: #424242;
   width: 100%;
-  height: calc(100% - 56px)
+  top: 64px;
+  height: calc(100% - 64px);
+  position: relative;
+  float: left;
+}
+.kb-board{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
 }
