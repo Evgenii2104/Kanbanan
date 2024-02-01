@@ -7,6 +7,6 @@ import {Component, Input} from "@angular/core";
 })
 
 export class BoardColumnComponent {
-  @Input() columnTitle: { title: string }
+  @Input() column: { title: string }
 
 }
