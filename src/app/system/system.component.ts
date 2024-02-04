@@ -12,8 +12,7 @@ export class SystemComponent {
     {title: 'aaaaa'},
     {title: 'ssssss'},
     {title: 'ddddd'},
-    {title: 'ooooo'},
-    {title: 'rrrrr'}
+    {title: 'ooooo'}
   ]
 }
 
