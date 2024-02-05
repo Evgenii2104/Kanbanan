@@ -1,3 +1,15 @@
-.mat-card {
+.container{
   height: 100%;
+  padding: 15px;
+  background-color: rgb(48, 42, 42);
+  border-radius: 5px;
+  border: 1px solid rgb(133, 127, 127);
+
+}
+.header{
+  color: rgb(133, 127, 127);
+  background-color: rgb(48, 42, 42);
+}
+.content{
+  color: rgb(219, 217, 217);
 }
