@@ -3,14 +3,18 @@
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-around;
+  background-color: rgb(48, 42, 42);
+  padding: 15px;
+  height: 100%;
+}
+.content{
+  padding: 5px;
 }
 .kb-board-colum {
-
   flex-basis: auto;
   height: 100%;
-  font-size: 500px;
+  font-size: 15px;
   min-width: 300px;
-  //margin: 20px;
-  //padding: 3px 15px 3px;
   border-radius: 5px;
+  padding: 55px;
 }
