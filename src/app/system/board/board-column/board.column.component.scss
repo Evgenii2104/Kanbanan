@@ -1,15 +1,17 @@
 .container{
   height: 100%;
-  padding: 15px;
+  padding: 5px;
   background-color: rgb(48, 42, 42);
   border-radius: 5px;
   border: 1px solid rgb(133, 127, 127);
 
 }
 .header{
-  color: rgb(133, 127, 127);
+  color: rgb(209, 203, 203);
   background-color: rgb(48, 42, 42);
+  padding: 2px 2px 20px 2px;
+  font-size: 20px
 }
 .content{
-  color: rgb(219, 217, 217);
+  color: rgb(224, 222, 222);
 }

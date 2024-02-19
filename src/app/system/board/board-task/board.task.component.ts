@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
 
 
 @Component({
@@ -8,5 +8,9 @@ import {Component} from "@angular/core";
 })
 
 export class BoardTaskComponent {
+  @Input() task: { title: string; description: string; status: string }
+  constructor() {
+  }
+
 
 }

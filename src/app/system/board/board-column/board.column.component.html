@@ -5,9 +5,11 @@
     </mat-card-header>
   </div>
   <div class="content">
-    <kb-board-task></kb-board-task>
+    <kb-board-task
+      *ngFor="let task of tasks"
+      [task]="task"
+    ></kb-board-task>
     </div>
-
 </div>
 
 
