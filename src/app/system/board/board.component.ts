@@ -1,4 +1,5 @@
 import {Component, Input} from "@angular/core";
+import {ColumnInterface} from "../../core/interfaces/column.interface";
 
 
 @Component({
@@ -9,7 +10,7 @@ import {Component, Input} from "@angular/core";
 
 export class BoardComponent {
 
-  @Input() columns: { title: string }[]
+  @Input() columns: ColumnInterface[]
 
   constructor() {}
 }

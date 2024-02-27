@@ -1,4 +1,5 @@
 import {Component, Input} from "@angular/core";
+import {TaskInterface} from "../../../core/interfaces/task.interface";
 
 
 @Component({
@@ -8,7 +9,7 @@ import {Component, Input} from "@angular/core";
 })
 
 export class BoardTaskComponent {
-  @Input() task: { title: string; description: string; status: string }
+  @Input() task: TaskInterface
   constructor() {
   }
 
