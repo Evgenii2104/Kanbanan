@@ -1,0 +1,7 @@
+{
+  "columns": [
+    { "title": "To do" },
+    { "title": "In progress" },
+    { "title": "Done" }
+  ]
+}
