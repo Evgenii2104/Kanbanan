@@ -5,6 +5,7 @@ import {CommonModule} from "@angular/common";
 import {BoardColumnComponent} from "./board-column/board.column.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
+import {BoardTaskComponent} from "./board-task/board.task.component";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {MatCardModule} from "@angular/material/card";
   ],
   declarations: [
     BoardComponent,
-    BoardColumnComponent
+    BoardColumnComponent,
+    BoardTaskComponent
   ],
   exports: [
     BoardComponent,

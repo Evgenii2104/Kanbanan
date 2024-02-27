@@ -1,18 +1,15 @@
 <div class="container">
-  <mat-card>
-    <div class="header">
-      <mat-card-header>
-        <mat-card-title>{{column.title}}</mat-card-title>
-      </mat-card-header>
+  <div class="header">
+    <mat-card-header>
+      <mat-card-title>{{column.title}}</mat-card-title>
+    </mat-card-header>
+  </div>
+  <div class="content">
+    <kb-board-task
+      *ngFor="let task of tasks"
+      [task]="task"
+    ></kb-board-task>
     </div>
-    <div class="content">
-      <mat-card-content>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cum harum ipsa natus quis, reiciendis repellat sit. Enim ipsam nulla praesentium quisquam. Beatae corporis fugit impedit libero necessitatibus reiciendis repellendus.
-        </p>
-      </mat-card-content>
-    </div>
-  </mat-card>
 </div>
 
 
