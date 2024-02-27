@@ -1,4 +1,5 @@
 import {Component, Input} from "@angular/core";
+import {TaskInterface} from "../../../core/interfaces/task.interface";
 
 @Component({
   selector: 'kb-board-column',
@@ -8,7 +9,7 @@ import {Component, Input} from "@angular/core";
 
 export class BoardColumnComponent {
   @Input() column: { title: string }
-  tasks: Array<{  title: string, description: string, status: string }> = [
+  tasks: TaskInterface[] = [
     {title: 'aaaaa', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.', status: 'add'},
     {title: 'ssssss', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.t111', status: 'delete'},
     {title: 'ddddd', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.222', status: 'push' },
