@@ -1,5 +1,6 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
 import {ColumnInterface} from "../../core/interfaces/column.interface";
+import {ColumnsService} from "../../core/services/columns.service";
 
 
 @Component({
@@ -8,11 +9,18 @@ import {ColumnInterface} from "../../core/interfaces/column.interface";
   styleUrls: ['board.component.scss']
 })
 
-export class BoardComponent {
+export class BoardComponent implements OnInit{
 
   @Input() columns: ColumnInterface[]
 
-  constructor() {}
+  constructor(private columnsService: ColumnsService) {
+  }
+
+  ngOnInit() {
+    this.columnsService.getAll().subscribe((response: any) => {
+      this.columns = response
+    })
+  }
 }
 
 

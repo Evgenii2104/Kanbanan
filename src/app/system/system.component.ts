@@ -1,5 +1,6 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {ColumnInterface} from "../core/interfaces/column.interface";
+import {ColumnsService} from "../core/services/columns.service";
 
 
 @Component({
@@ -16,5 +17,6 @@ export class SystemComponent {
     {title: 'ddddd'},
     {title: 'ooooo'}
   ]
+
 }
 
