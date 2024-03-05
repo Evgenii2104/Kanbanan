@@ -1,12 +1,17 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
+import {Observable} from "rxjs";
+import {ColumnInterface} from "../interfaces/column.interface";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ColumnsService{
   constructor(private http: HttpClient) {
   }
 
-  getAll() {
-    return this.http.get('http://localhost:3000/columns')
+  getAll(): Observable<ColumnInterface> {
+    const url = environment.apiUrl + '/columns';
+    // @ts-ignore
+    return this.http.get(url)
   }
 }

@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, Input, OnDestroy, OnInit} from "@angular/core";
 import {ColumnInterface} from "../../core/interfaces/column.interface";
 import {ColumnsService} from "../../core/services/columns.service";
+import {Observable, Subscription} from "rxjs";
 
 
 @Component({
@@ -9,18 +10,26 @@ import {ColumnsService} from "../../core/services/columns.service";
   styleUrls: ['board.component.scss']
 })
 
-export class BoardComponent implements OnInit{
+export class BoardComponent implements OnInit, OnDestroy{
 
-  @Input() columns: ColumnInterface[]
+   columns: ColumnInterface[] = []
+  sub: Subscription
 
   constructor(private columnsService: ColumnsService) {
   }
 
-  ngOnInit() {
-    this.columnsService.getAll().subscribe((response: any) => {
-      this.columns = response
+  ngOnInit(): void {
+
+    this.columnsService.getAll().subscribe((response: ColumnInterface) => {
+      this.columns.push(response)
+      console.log(response)
     })
   }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe()
+  }
+
 }
 
 
