@@ -12,19 +12,17 @@ import {Observable, Subscription} from "rxjs";
 
 export class BoardComponent implements OnInit, OnDestroy{
 
-   columns: any
+   columns: ColumnInterface[]
   sub: Subscription
 
   constructor(private columnsService: ColumnsService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
 
-    this.columnsService.getAll().subscribe((response: ColumnInterface) => {
+    this.sub = this.columnsService.getAll().subscribe((response: ColumnInterface[]) => {
       this.columns = response
-      console.log(response)
     })
-    console.log(this.columns)
   }
 
   ngOnDestroy() {

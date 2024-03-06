@@ -9,9 +9,9 @@ export class ColumnsService{
   constructor(private http: HttpClient) {
   }
 
-  getAll(): Observable<ColumnInterface> {
-    const url = environment.apiUrl + '/columns';
-    // @ts-ignore
-    return this.http.get(url)
+  getAll(): Observable<ColumnInterface[]> {
+    const url = (environment.apiUrl + '/columns');
+    return this.http.get<ColumnInterface[]>(url)
   }
 }
+

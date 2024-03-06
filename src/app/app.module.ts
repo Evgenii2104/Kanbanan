@@ -19,7 +19,7 @@ import {ColumnsService} from "./core/services/columns.service";
     SystemModule,
     HttpClientModule
   ],
-  providers: [ColumnsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
