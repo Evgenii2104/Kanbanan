@@ -12,7 +12,7 @@ import {Observable, Subscription} from "rxjs";
 
 export class BoardComponent implements OnInit, OnDestroy{
 
-   columns: ColumnInterface[] = []
+   columns: any
   sub: Subscription
 
   constructor(private columnsService: ColumnsService) {
@@ -21,9 +21,10 @@ export class BoardComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
 
     this.columnsService.getAll().subscribe((response: ColumnInterface) => {
-      this.columns.push(response)
+      this.columns = response
       console.log(response)
     })
+    console.log(this.columns)
   }
 
   ngOnDestroy() {

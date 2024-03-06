@@ -11,12 +11,5 @@ import {ColumnsService} from "../core/services/columns.service";
 
 export class SystemComponent {
 
-   columns: ColumnInterface[] = [
-    {title: 'aaaaa'},
-    {title: 'ssssss'},
-    {title: 'ddddd'},
-    {title: 'ooooo'}
-  ]
-
 }
 
