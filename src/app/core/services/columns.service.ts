@@ -10,7 +10,7 @@ export class ColumnsService{
   }
 
   getAll(): Observable<ColumnInterface[]> {
-    const url = (environment.apiUrl + '/columns');
+    const url = environment.apiUrl + '/columns';
     return this.http.get<ColumnInterface[]>(url)
   }
 }

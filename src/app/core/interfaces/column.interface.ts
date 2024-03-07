@@ -1,4 +1,4 @@
 export interface ColumnInterface {
-  title: string
-  //column: string
+  title: string,
+  status: string
 }

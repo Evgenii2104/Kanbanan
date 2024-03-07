@@ -1,8 +1,13 @@
 {
   "columns": [
-    { "title": "To do" },
-    { "title": "In progress" },
-    { "title": "Done" },
-    { "title":  "aaaaa"}
+    { "title": "To do", "status": "To do" },
+    { "title": "In progress", "status": "In progress" },
+    { "title": "Done", "status": "Done" },
+    { "title":  "aaaaa", "status": "aaaaa"}
+  ],
+  "tasks": [
+    {"status": "To do"},
+    {"status": "In progress"},
+    {"status": "Done"}
   ]
 }
