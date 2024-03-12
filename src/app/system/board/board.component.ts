@@ -17,38 +17,45 @@ export class BoardComponent implements OnInit, OnDestroy{
    columns: ColumnInterface[];
    tasks: TaskInterface[];
    sub1: Subscription;
-   sub2: Subscription
+   result: any[]
 
   constructor(private columnsService: ColumnsService, private tasksService: TasksService) {
   }
 
   ngOnInit() {
-
-    this.sub1 = this.columnsService.getAll().subscribe((response: ColumnInterface[]) => {
-      this.columns = response
-    })
-    this.sub2 = this.tasksService.getAll().subscribe((response: TaskInterface[]) => {
-      this.tasks = response
-    })
-    this.combination()
+     this.sub1 = forkJoin([this.columnsService.getAll(), this.tasksService.getAll()])
+       .subscribe({
+         next:([response, response2]) => {
+           //console.log(response, response2)
+           this.columns = response;
+           this.tasks = response2
+         },
+         error: err => {
+           console.error("Error", err)
+         }
+       });
+     this.combination()
   }
 
   combination() {
-     const observable = forkJoin([
-       this.columns,
-       this.tasks
-     ])
-    observable.subscribe({
-      next: value => console.log(value),
-      complete: () => console.log('end')
-    })
-    console.log(observable)
+     this.result = this.tasks.reduce((acc, task) => {
+       const column = this.columns.find(col => col.status === task.status);
+       if (column) {
+         const key = column.status.toLowerCase();
+         // @ts-ignore
+         acc[key] = acc[key] || [];
+         // @ts-ignore
+         acc[key].push(task);
+       }
+       return acc;
+     }, [{}]);
+    console.log(this.result)
+     return this.result
   }
 
 
   ngOnDestroy() {
-    this.sub1.unsubscribe();
-    this.sub2.unsubscribe()
+    this.sub1.unsubscribe()
   }
 
 }

@@ -1,13 +1,14 @@
 {
   "columns": [
-    { "title": "To do", "status": "To do" },
-    { "title": "In progress", "status": "In progress" },
+    { "title": "To do", "status": "Todo" },
+    { "title": "In progress", "status": "Inprogress" },
     { "title": "Done", "status": "Done" },
-    { "title":  "aaaaa", "status": "aaaaa"}
+    { "title": "delete", "status": "delete"}
   ],
   "tasks": [
-    {"status": "To do"},
-    {"status": "In progress"},
-    {"status": "Done"}
+    {"title": "aaaaa", "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.", "status": "Todo" },
+    {"title": "ssssss", "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.t111", "status": "Inprogress"},
+    {"title": "ddddd", "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.222", "status": "Done" },
+    {"title": "ooooo", "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.333", "status": "delete"}
   ]
 }
