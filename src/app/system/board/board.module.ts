@@ -6,6 +6,8 @@ import {BoardColumnComponent} from "./board-column/board.column.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {BoardTaskComponent} from "./board-task/board.task.component";
+import {SystemModule} from "../system.module";
+import {LoaderComponent} from "../../core/loader/loader.component";
 
 @NgModule({
   imports: [
@@ -17,11 +19,13 @@ import {BoardTaskComponent} from "./board-task/board.task.component";
   declarations: [
     BoardComponent,
     BoardColumnComponent,
-    BoardTaskComponent
+    BoardTaskComponent,
+    LoaderComponent
   ],
   exports: [
     BoardComponent,
-    BoardColumnComponent
+    BoardColumnComponent,
+    LoaderComponent
   ],
   providers: []
 })

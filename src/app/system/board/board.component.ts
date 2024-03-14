@@ -17,40 +17,44 @@ export class BoardComponent implements OnInit, OnDestroy{
    columns: ColumnInterface[];
    tasks: TaskInterface[];
    sub1: Subscription;
-   result: {[status: string]:ColumnInterface}
+   sortTasks: {[status: string]:TaskInterface[]};
+   isLoaded = false
 
   constructor(private columnsService: ColumnsService, private tasksService: TasksService) {
   }
 
   ngOnInit() {
-     this.sub1 = forkJoin([this.columnsService.getAll(), this.tasksService.getAll()])
-       .subscribe({
-         next:([response, response2]) => {
-           this.columns = response;
-           this.tasks = response2;
-           this.combination()
-         },
-         error: err => {
-           console.error("Error", err)
-         }
-       });
+
+     setTimeout(() => {
+       this.sub1 = forkJoin([this.columnsService.getAll(), this.tasksService.getAll()])
+         .subscribe({
+           next:([response, response2]) => {
+             this.columns = response;
+             this.tasks = response2;
+             this.isLoaded = true
+             this.combination()
+           },
+           error: err => {
+             console.error("Error", err)
+           }
+         });
+     }, 5000)
+
 
   }
 
   combination() {
-     this.result = this.tasks.reduce((acc, task) => {
+     this.sortTasks = this.tasks.reduce((acc: {[status: string]:TaskInterface[]}, task: TaskInterface) => {
        const column = this.columns.find(col => col.status === task.status);
        if (column) {
          const key = column.status;
-         // @ts-ignore
          acc[key] = acc[key] || [];
-         // @ts-ignore
          acc[key].push(task);
        }
        return acc;
-     }, {});
-    console.log(this.result)
-     return this.result
+     }, {} as {[status: string]:TaskInterface[]});
+    console.log(this.sortTasks)
+     return this.sortTasks
   }
 
 
