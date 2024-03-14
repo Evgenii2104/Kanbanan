@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
 import {ColumnInterface} from "../../core/interfaces/column.interface";
 import {ColumnsService} from "../../core/services/columns.service";
-import {forkJoin, Subscription} from "rxjs";
+import {delay, forkJoin, Subscription} from "rxjs";
 import {TasksService} from "../../core/services/tasks.service";
 import {TaskInterface} from "../../core/interfaces/task.interface";
 
@@ -24,9 +24,8 @@ export class BoardComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit() {
-
-     setTimeout(() => {
        this.sub1 = forkJoin([this.columnsService.getAll(), this.tasksService.getAll()])
+         .pipe(delay(3000))
          .subscribe({
            next:([response, response2]) => {
              this.columns = response;
@@ -38,9 +37,6 @@ export class BoardComponent implements OnInit, OnDestroy{
              console.error("Error", err)
            }
          });
-     }, 5000)
-
-
   }
 
   combination() {
