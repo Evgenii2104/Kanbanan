@@ -1,10 +1,15 @@
-<div class="container">
-  <kb-board-column class="content"
-    *ngFor="let column of columns"
-    [column]="column"
-  ></kb-board-column>
+<div class="row text-center" *ngIf="!isLoaded">
+  <kb-loader></kb-loader>
 </div>
 
+
+  <div class="container">
+   <kb-board-column class="content"
+     *ngFor="let column of columns"
+     [column]="column"
+     [tasks]="sortTasks[column.status]"
+   ></kb-board-column>
+  </div>
 
 
 
