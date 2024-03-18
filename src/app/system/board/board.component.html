@@ -1,5 +1,5 @@
-<div class="row text-center" *ngIf="!isLoaded">
-  <kb-loader></kb-loader>
+<div *ngIf="!isLoaded">
+  <kb-loader class="loader"></kb-loader>
 </div>
 
 
@@ -8,7 +8,8 @@
      *ngFor="let column of columns"
      [column]="column"
      [tasks]="sortTasks[column.status]"
-   ></kb-board-column>
+   >
+   </kb-board-column>
   </div>
 
 

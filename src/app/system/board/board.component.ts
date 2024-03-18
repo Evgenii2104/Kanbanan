@@ -25,13 +25,13 @@ export class BoardComponent implements OnInit, OnDestroy{
 
   ngOnInit() {
        this.sub1 = forkJoin([this.columnsService.getAll(), this.tasksService.getAll()])
-         .pipe(delay(3000))
+         .pipe(delay(1000))
          .subscribe({
            next:([response, response2]) => {
              this.columns = response;
              this.tasks = response2;
              this.isLoaded = true
-             this.combination()
+             this.combination(this.tasks, this.columns, this.sortTasks)
            },
            error: err => {
              console.error("Error", err)
@@ -39,9 +39,10 @@ export class BoardComponent implements OnInit, OnDestroy{
          });
   }
 
-  combination() {
-     this.sortTasks = this.tasks.reduce((acc: {[status: string]:TaskInterface[]}, task: TaskInterface) => {
-       const column = this.columns.find(col => col.status === task.status);
+  combination(tasks: TaskInterface[], columns: ColumnInterface[], sortTasks:{[status: string]:TaskInterface[]}) {
+    this.sortTasks = sortTasks;
+    this.sortTasks = tasks.reduce((acc: {[status: string]:TaskInterface[]}, task: TaskInterface) => {
+       const column = columns.find(col => col.status === task.status);
        if (column) {
          const key = column.status;
          acc[key] = acc[key] || [];
@@ -52,7 +53,6 @@ export class BoardComponent implements OnInit, OnDestroy{
     console.log(this.sortTasks)
      return this.sortTasks
   }
-
 
   ngOnDestroy() {
     this.sub1.unsubscribe()

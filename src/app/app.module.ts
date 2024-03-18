@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SystemModule} from "./system/system.module";
 import {HttpClientModule} from "@angular/common/http";
-import {ColumnsService} from "./core/services/columns.service";
+
 
 @NgModule({
   declarations: [
