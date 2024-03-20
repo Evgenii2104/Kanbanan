@@ -8,6 +8,8 @@ import {MatCardModule} from "@angular/material/card";
 import {BoardTaskComponent} from "./board-task/board.task.component";
 import {LoaderComponent} from "../../core/loader/loader.component";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogOverviewComponent } from './dialog-overview/dialog.overview.component';
 
 
 
@@ -17,15 +19,15 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     BoardRoutingModule,
     MatCardModule,
     MatButtonModule,
-    MatProgressSpinnerModule
-    //MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule
-    //MatDialogClose, MatDialogActions, MatDialogContent, MatDialogTitle
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   declarations: [
     BoardComponent,
     BoardColumnComponent,
     BoardTaskComponent,
-    LoaderComponent
+    LoaderComponent,
+    DialogOverviewComponent,
   ],
   exports: [
     BoardComponent,

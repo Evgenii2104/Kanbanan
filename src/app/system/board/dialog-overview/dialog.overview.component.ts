@@ -1,39 +1,23 @@
 import {Component, Inject} from "@angular/core";
-import {MatButtonModule} from "@angular/material/button";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {FormsModule} from "@angular/forms";
-import {MatInputModule} from "@angular/material/input";
-import {
-  MAT_DIALOG_DATA,
-  MatDialogActions,
-  MatDialogClose, MatDialogContent,
-  MatDialogModule,
-  MatDialogRef,
-  MatDialogTitle
-} from "@angular/material/dialog";
-import {DialogInterface} from "../../../core/interfaces/dialog.interface";
-
-
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import { ColumnInterface } from '../../../core/interfaces/column.interface';
 
 @Component({
   selector: 'kb-dialog',
   templateUrl: 'dialog.overview.component.html',
-  standalone: true,
-  imports: [
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    MatButtonModule
-  ],
+  styleUrls: ['./dialog.overview.component.scss']
 })
 export class DialogOverviewComponent {
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogInterface,
+    @Inject(MAT_DIALOG_DATA) public column: ColumnInterface,
   ) {}
 
-  onNoClick(): void {
+  onSaveClick(): void {
+    this.dialogRef.close('data to save');
+  }
+
+  onCancelClick(): void {
     this.dialogRef.close();
   }
 }

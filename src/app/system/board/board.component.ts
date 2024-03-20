@@ -31,7 +31,7 @@ export class BoardComponent implements OnInit, OnDestroy{
              this.columns = response;
              this.tasks = response2;
              this.isLoaded = true
-             this.combination(this.tasks, this.columns, this.sortTasks)
+             this.sortTasks = this.combination(this.tasks, this.columns);
            },
            error: err => {
              console.error("Error", err)
@@ -39,9 +39,8 @@ export class BoardComponent implements OnInit, OnDestroy{
          });
   }
 
-  combination(tasks: TaskInterface[], columns: ColumnInterface[], sortTasks:{[status: string]:TaskInterface[]}) {
-    this.sortTasks = sortTasks;
-    this.sortTasks = tasks.reduce((acc: {[status: string]:TaskInterface[]}, task: TaskInterface) => {
+  combination(tasks: TaskInterface[], columns: ColumnInterface[]): {[status: string]:TaskInterface[]} {
+    return tasks.reduce((acc: {[status: string]:TaskInterface[]}, task: TaskInterface) => {
        const column = columns.find(col => col.status === task.status);
        if (column) {
          const key = column.status;
@@ -50,8 +49,6 @@ export class BoardComponent implements OnInit, OnDestroy{
        }
        return acc;
      }, {} as {[status: string]:TaskInterface[]});
-    console.log(this.sortTasks)
-     return this.sortTasks
   }
 
   ngOnDestroy() {
