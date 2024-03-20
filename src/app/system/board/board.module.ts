@@ -7,10 +7,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {BoardTaskComponent} from "./board-task/board.task.component";
 import {LoaderComponent} from "../../core/loader/loader.component";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+
 
 
 @NgModule({
@@ -19,8 +17,9 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     BoardRoutingModule,
     MatCardModule,
     MatButtonModule,
-    MatProgressSpinnerModule,
+    MatProgressSpinnerModule
     //MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule
+    //MatDialogClose, MatDialogActions, MatDialogContent, MatDialogTitle
   ],
   declarations: [
     BoardComponent,
