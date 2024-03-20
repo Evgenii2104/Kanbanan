@@ -27,7 +27,7 @@ import { DialogOverviewComponent } from './dialog-overview/dialog.overview.compo
     BoardColumnComponent,
     BoardTaskComponent,
     LoaderComponent,
-    DialogOverviewComponent,
+    //DialogOverviewComponent,
   ],
   exports: [
     BoardComponent,
