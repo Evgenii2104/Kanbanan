@@ -1,7 +1,46 @@
 <mat-dialog-content>
   <div>Column status {{column.status}}</div>
 </mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button (click)="onCancelClick()">Cancel</button>
-  <button mat-button (click)="onSaveClick()" cdkFocusInitial>Save</button>
+<mat-dialog-actions class="container">
+  <form class="content" (ngSubmit)="submitForm(form)" #form="ngForm">
+    <mat-form-field class="form-group">
+      <mat-label>Text input</mat-label>
+      <input
+        matInput
+        class="form-control"
+        name="textInput"
+        type="text"
+        ngModel
+      >
+    </mat-form-field>
+    <mat-form-field class="form-group">
+      <mat-label>Textarea</mat-label>
+      <textarea
+        matInput
+        type="texta"
+        class="form-control"
+        name="textarea"
+        ngModel
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field class="form-group">
+      <mat-label>{{column.status}}</mat-label>
+      <mat-select
+        ngModel
+        class="form-control"
+        type="st"
+        name="status"
+      >
+        <mat-option value="one">To do</mat-option>
+        <mat-option value="two">In progress</mat-option>
+        <mat-option value="three">Done</mat-option>
+        <mat-option value="four">delete</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <div>
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+    <button mat-button (click)="onSaveClick()" type="submit" cdkFocusInitial>Add</button>
+  </div>
+
 </mat-dialog-actions>
