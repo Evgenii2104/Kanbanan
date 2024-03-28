@@ -27,7 +27,7 @@ import {FormsModule, NgForm, ReactiveFormsModule} from "@angular/forms";
   ],
 })
 export class DialogOverviewComponent{
-
+ form: NgForm
 
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewComponent>,
@@ -36,14 +36,12 @@ export class DialogOverviewComponent{
 
   onSaveClick(): void {
     this.dialogRef.close('data to save');
-    // @ts-ignore
-    this.submitForm()
+    this.submitForm(this.form)
   }
 
   onCancelClick(): void {
     this.dialogRef.close('ger');
   }
-
   submitForm(form: NgForm){
     console.log('submitted', form)
   }

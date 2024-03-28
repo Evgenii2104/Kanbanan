@@ -37,10 +37,11 @@
         <mat-option value="four">delete</mat-option>
       </mat-select>
     </mat-form-field>
+    <div>
+      <button mat-button (click)="onCancelClick()">Cancel</button>
+      <button mat-button (click)="onSaveClick()" type="submit" cdkFocusInitial>Add</button>
+    </div>
   </form>
-  <div>
-    <button mat-button (click)="onCancelClick()">Cancel</button>
-    <button mat-button (click)="onSaveClick()" type="submit" cdkFocusInitial>Add</button>
-  </div>
+
 
 </mat-dialog-actions>
