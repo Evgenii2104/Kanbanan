@@ -21,8 +21,9 @@ export class BoardColumnComponent {
     const dialogRef = this.dialog.open(DialogOverviewComponent, { data: this.column });
 
     dialogRef.afterClosed()
-      .subscribe(result => {
-        console.log('The dialog was closed', result);
+      .subscribe((task: TaskInterface) => {
+        this.tasks.push(task)
+        console.log('The dialog was closed', task);
       });
   }
 

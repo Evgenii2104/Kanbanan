@@ -1,8 +1,9 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {TaskInterface} from "../interfaces/task.interface";
 import {environment} from "../../../environments/environment";
+import {map} from "rxjs"
 
 @Injectable({providedIn: 'root'})
 export class TasksService{
@@ -12,5 +13,16 @@ export class TasksService{
   getAll(): Observable<TaskInterface[]>{
     const url = environment.apiUrl + '/tasks';
     return this.http.get<TaskInterface[]>(url)
+  }
+
+  addTask(title: string, description: string, status: string): Observable<any> {
+    const  params =  {
+        title: title,
+        description: description,
+        status: status,
+      }
+
+    const url = environment.apiUrl + '/tasks';
+    return this.http.post<any>(url, params)
   }
 }

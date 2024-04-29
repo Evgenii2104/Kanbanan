@@ -9,7 +9,13 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {FormsModule, NgForm, ReactiveFormsModule} from "@angular/forms";
+import {
+  FormGroup,
+  FormsModule,
+  NgForm,
+  ReactiveFormsModule
+} from "@angular/forms";
+import {TasksService} from "../../../core/services/tasks.service";
 
 @Component({
   selector: 'kb-dialog',
@@ -26,24 +32,30 @@ import {FormsModule, NgForm, ReactiveFormsModule} from "@angular/forms";
     MatFormFieldModule
   ],
 })
-export class DialogOverviewComponent{
- form: NgForm
+export class DialogOverviewComponent {
+  form: FormGroup
 
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewComponent>,
     @Inject(MAT_DIALOG_DATA) public column: ColumnInterface,
-  ) {}
+    private taskService: TasksService
+  ) {
+  }
 
-  onSaveClick(): void {
+  addClick(form: NgForm): void {
+    this.taskService.addTask(form.value.textInput, form.value.textArea, this.column.status)
+      .subscribe((res) => {
+        console.log(res)
+      })
     this.dialogRef.close('data to save');
-    this.submitForm(this.form)
   }
 
   onCancelClick(): void {
     this.dialogRef.close('ger');
   }
-  submitForm(form: NgForm){
-    console.log('submitted', form)
+
+  submitForm(form: NgForm) {
+
+    console.log('submitted', form.value)
   }
 }
-

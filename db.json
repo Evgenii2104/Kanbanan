@@ -1,14 +1,50 @@
 {
   "columns": [
-    { "title": "To do", "status": "To do" },
-    { "title": "In progress", "status": "In progress" },
-    { "title": "Done", "status": "Done" },
-    { "title": "delete", "status": "delete"}
+    {
+      "title": "To do",
+      "status": "To do",
+      "id": "1b51"
+    },
+    {
+      "title": "In progress",
+      "status": "In progress",
+      "id": "db0f"
+    },
+    {
+      "title": "Done",
+      "status": "Done",
+      "id": "6b76"
+    },
+    {
+      "title": "delete",
+      "status": "delete",
+      "id": "2e80"
+    }
   ],
   "tasks": [
-    {"title": "aaaaa", "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.", "status": "To do" },
-    {"title": "ssssss", "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.t111", "status": "In progress"},
-    {"title": "ddddd", "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.222", "status": "Done" },
-    {"title": "ooooo", "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.333", "status": "delete"}
+    {
+      "title": "aaaaa",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.",
+      "status": "To do",
+      "id": "abc6"
+    },
+    {
+      "title": "ssssss",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.t111",
+      "status": "In progress",
+      "id": "b7c6"
+    },
+    {
+      "title": "ddddd",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.222",
+      "status": "Done",
+      "id": "5277"
+    },
+    {
+      "title": "ooooo",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.333",
+      "status": "delete",
+      "id": "da52"
+    }
   ]
 }

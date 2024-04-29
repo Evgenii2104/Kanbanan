@@ -2,7 +2,7 @@
   <div>Column status {{column.status}}</div>
 </mat-dialog-content>
 <mat-dialog-actions class="container">
-  <form class="content" (ngSubmit)="submitForm(form)" #form="ngForm">
+  <form class="content" #form="ngForm" (ngSubmit)="submitForm(form)">
     <mat-form-field class="form-group">
       <mat-label>Text input</mat-label>
       <input
@@ -19,27 +19,27 @@
         matInput
         type="texta"
         class="form-control"
-        name="textarea"
+        name="textArea"
         ngModel
       ></textarea>
     </mat-form-field>
     <mat-form-field class="form-group">
       <mat-label>{{column.status}}</mat-label>
       <mat-select
-        ngModel
         class="form-control"
-        type="st"
-        name="status"
+        type="texts"
+        name="colStatus"
+        ngModel
       >
-        <mat-option value="one">To do</mat-option>
-        <mat-option value="two">In progress</mat-option>
-        <mat-option value="three">Done</mat-option>
-        <mat-option value="four">delete</mat-option>
+        <mat-option value="To do">To do</mat-option>
+        <mat-option value="In progress">In progress</mat-option>
+        <mat-option value="Done">Done</mat-option>
+        <mat-option value="delete">delete</mat-option>
       </mat-select>
     </mat-form-field>
     <div>
       <button mat-button (click)="onCancelClick()">Cancel</button>
-      <button mat-button (click)="onSaveClick()" type="submit" cdkFocusInitial>Add</button>
+      <button mat-button (click)="addClick(form)" type="submit" cdkFocusInitial>Add</button>
     </div>
   </form>
 

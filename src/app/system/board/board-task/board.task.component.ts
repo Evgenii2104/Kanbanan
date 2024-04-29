@@ -8,6 +8,7 @@ import {TaskInterface} from "../../../core/interfaces/task.interface";
   styleUrls: ['board.task.component.scss']
 })
 
+
 export class BoardTaskComponent {
   @Input() task: TaskInterface
   constructor() {
