@@ -1,4 +1,4 @@
-import {Component, Inject} from "@angular/core";
+import {ChangeDetectorRef, Component, Inject} from "@angular/core";
 import {
   MAT_DIALOG_DATA,
   MatDialogModule,
@@ -33,7 +33,7 @@ import {TasksService} from "../../../core/services/tasks.service";
   ],
 })
 export class DialogOverviewComponent {
-  form: FormGroup
+  form: NgForm
 
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewComponent>,
@@ -45,7 +45,7 @@ export class DialogOverviewComponent {
   addClick(form: NgForm): void {
     this.taskService.addTask(form.value.textInput, form.value.textArea, this.column.status)
       .subscribe((res) => {
-        console.log(res)
+        //console.log(res)
       })
     this.dialogRef.close('data to save');
   }
@@ -56,6 +56,6 @@ export class DialogOverviewComponent {
 
   submitForm(form: NgForm) {
 
-    console.log('submitted', form.value)
+    //console.log('submitted', form.value)
   }
 }
