@@ -6,6 +6,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {BoardModule} from "./board/board.module";
 import {FormsModule} from "@angular/forms";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import {FormsModule} from "@angular/forms";
     MatToolbarModule,
     MatIconModule,
     BoardModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   declarations: [
     SystemComponent,

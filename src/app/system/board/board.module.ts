@@ -19,8 +19,7 @@ import { DialogOverviewComponent } from './dialog-overview/dialog.overview.compo
     BoardRoutingModule,
     MatCardModule,
     MatButtonModule,
-    MatProgressSpinnerModule,
-    MatDialogModule
+    MatProgressSpinnerModule
   ],
   declarations: [
     BoardComponent,

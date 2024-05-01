@@ -1,5 +1,5 @@
 <mat-dialog-content>
-  <div>Column status {{column.status}}</div>
+  <div>Column status</div>
 </mat-dialog-content>
 <mat-dialog-actions class="container">
   <form class="content" #form="ngForm" (ngSubmit)="submitForm(form)">
@@ -24,8 +24,12 @@
       ></textarea>
     </mat-form-field>
     <mat-form-field class="form-group">
-      <mat-label>{{column.status}}</mat-label>
+      <mat-label>
+        Status
+        <!--{{columns[0].status}}-->
+      </mat-label>
       <mat-select
+        placeholder="status To Do"
         class="form-control"
         type="texts"
         name="colStatus"

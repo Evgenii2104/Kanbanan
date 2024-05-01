@@ -1,14 +1,21 @@
-<div *ngIf="!isLoaded">
+<div *ngIf="!isLoaded; else elseBlock">
   <kb-loader class="loader"></kb-loader>
+
 </div>
+<ng-template #elseBlock>
+  <button class="button" mat-raised-button (click)="openDialog()">+</button>
+</ng-template>
 
 
   <div class="container">
+
    <kb-board-column class="content"
+
      *ngFor="let column of columns"
      [column]="column"
      [tasks]="sortTasks[column.status]"
    >
+
    </kb-board-column>
   </div>
 

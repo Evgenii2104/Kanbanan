@@ -1,9 +1,11 @@
-import {Component, OnDestroy, OnInit} from "@angular/core";
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from "@angular/core";
 import {ColumnInterface} from "../../core/interfaces/column.interface";
 import {ColumnsService} from "../../core/services/columns.service";
 import {delay, forkJoin, Subscription} from "rxjs";
 import {TasksService} from "../../core/services/tasks.service";
 import {TaskInterface} from "../../core/interfaces/task.interface";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogOverviewComponent} from "./dialog-overview/dialog.overview.component";
 
 
 @Component({
@@ -20,7 +22,12 @@ export class BoardComponent implements OnInit, OnDestroy{
    sortTasks: {[status: string]:TaskInterface[]};
    isLoaded = false
 
-  constructor(private columnsService: ColumnsService, private tasksService: TasksService) {
+  constructor(
+    private columnsService: ColumnsService,
+    private tasksService: TasksService,
+    public dialog: MatDialog,
+    private ref: ChangeDetectorRef
+  ) {
   }
 
   ngOnInit() {
@@ -49,6 +56,21 @@ export class BoardComponent implements OnInit, OnDestroy{
        }
        return acc;
      }, {} as {[status: string]:TaskInterface[]});
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogOverviewComponent, { data: this.columns });
+    dialogRef.afterClosed()
+      .subscribe((task: TaskInterface) => {
+        this.ref.detectChanges()
+        //this.tasks.push(task);
+        //this.changeList()
+        // setTimeout(() => {
+        //   this.changeList()
+        // this.ref.markForCheck()
+        // }, 2000)
+        console.log('The dialog was closed', task);
+      });
   }
 
   ngOnDestroy() {

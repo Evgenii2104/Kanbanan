@@ -37,13 +37,13 @@ export class DialogOverviewComponent {
 
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewComponent>,
-    @Inject(MAT_DIALOG_DATA) public column: ColumnInterface,
+    @Inject(MAT_DIALOG_DATA) public columns: ColumnInterface[],
     private taskService: TasksService
   ) {
   }
 
   addClick(form: NgForm): void {
-    this.taskService.addTask(form.value.textInput, form.value.textArea, this.column.status)
+    this.taskService.addTask(form.value.textInput, form.value.textArea, form.value.colStatus)
       .subscribe((res) => {
         //console.log(res)
       })
@@ -56,6 +56,6 @@ export class DialogOverviewComponent {
 
   submitForm(form: NgForm) {
 
-    //console.log('submitted', form.value)
+    console.log('submitted', form.value)
   }
 }

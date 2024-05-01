@@ -26,4 +26,12 @@ body{margin: 0;font-family: Roboto,"Helvetica Neue", sans-serif}
   display: flex;
   justify-content: center;
   align-items: center;
+  .ng-template{
+    align-items: end;
+
+    .button {
+      background: rgb(48, 42, 42);
+    }
+  }
 }
+
