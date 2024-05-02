@@ -1,8 +1,6 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {TaskInterface} from "../../../core/interfaces/task.interface";
 import {ColumnInterface} from "../../../core/interfaces/column.interface";
-import {MatDialog} from "@angular/material/dialog";
-import {DialogOverviewComponent} from "../dialog-overview/dialog.overview.component";
 
 @Component({
   selector: 'kb-board-column',

@@ -45,36 +45,6 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elitendis repellendus.333",
       "status": "delete",
       "id": "da52"
-    },
-    {
-      "id": "5ffd",
-      "title": "212",
-      "description": "qqqq",
-      "status": "To do"
-    },
-    {
-      "id": "15d6",
-      "title": "212",
-      "description": "xxx",
-      "status": "In progress"
-    },
-    {
-      "id": "0ee2",
-      "title": "212",
-      "description": "1111",
-      "status": "Done"
-    },
-    {
-      "id": "0377",
-      "title": "11",
-      "description": "zzzzz",
-      "status": "delete"
-    },
-    {
-      "id": "7b6e",
-      "title": "212",
-      "description": "gnvjhmbjk",
-      "status": "To do"
     }
   ]
 }

@@ -1,11 +1,11 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from "@angular/core";
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from "@angular/core";
 import {ColumnInterface} from "../../core/interfaces/column.interface";
 import {ColumnsService} from "../../core/services/columns.service";
-import {delay, forkJoin, Subscription} from "rxjs";
+import {delay, forkJoin, Subscription, switchMap} from "rxjs";
 import {TasksService} from "../../core/services/tasks.service";
 import {TaskInterface} from "../../core/interfaces/task.interface";
 import {MatDialog} from "@angular/material/dialog";
-import {DialogOverviewComponent} from "./dialog-overview/dialog.overview.component";
+import {AddTaskDialogComponents} from "./add-task-dialog.components/add-task-dialog.components";
 
 
 @Component({
@@ -26,7 +26,8 @@ export class BoardComponent implements OnInit, OnDestroy{
     private columnsService: ColumnsService,
     private tasksService: TasksService,
     public dialog: MatDialog,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
+    private taskService: TasksService
   ) {
   }
 
@@ -59,17 +60,17 @@ export class BoardComponent implements OnInit, OnDestroy{
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogOverviewComponent, { data: this.columns });
-    dialogRef.afterClosed()
-      .subscribe((task: TaskInterface) => {
-        this.ref.detectChanges()
-        //this.tasks.push(task);
-        //this.changeList()
-        // setTimeout(() => {
-        //   this.changeList()
-        // this.ref.markForCheck()
-        // }, 2000)
-        console.log('The dialog was closed', task);
+    const dialogRef = this.dialog.open(AddTaskDialogComponents, { data: this.columns });
+
+    dialogRef.afterClosed().pipe(
+      switchMap((formValue: any) => {
+        console.log('swich', formValue.value)
+        return this.taskService.addTask(formValue.value.textInput, formValue.value.textArea, formValue.value.colStatus)
+      })
+    )
+      .subscribe(() => {
+        this.ngOnInit()
+        console.log('The dialog was closed');
       });
   }
 

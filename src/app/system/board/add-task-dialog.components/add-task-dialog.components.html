@@ -2,15 +2,14 @@
   <div>Column status</div>
 </mat-dialog-content>
 <mat-dialog-actions class="container">
-  <form class="content" #form="ngForm" (ngSubmit)="submitForm(form)">
+  <form class="content" [formGroup]="form"  (ngSubmit)="submitForm()">
     <mat-form-field class="form-group">
       <mat-label>Text input</mat-label>
       <input
         matInput
         class="form-control"
-        name="textInput"
+        formControlName="textInput"
         type="text"
-        ngModel
       >
     </mat-form-field>
     <mat-form-field class="form-group">
@@ -19,21 +18,18 @@
         matInput
         type="texta"
         class="form-control"
-        name="textArea"
-        ngModel
+        formControlName="textArea"
       ></textarea>
     </mat-form-field>
     <mat-form-field class="form-group">
       <mat-label>
         Status
-        <!--{{columns[0].status}}-->
       </mat-label>
       <mat-select
         placeholder="status To Do"
         class="form-control"
-        type="texts"
-        name="colStatus"
-        ngModel
+        type="radio"
+        formControlName="colStatus"
       >
         <mat-option value="To do">To do</mat-option>
         <mat-option value="In progress">In progress</mat-option>
@@ -43,7 +39,7 @@
     </mat-form-field>
     <div>
       <button mat-button (click)="onCancelClick()">Cancel</button>
-      <button mat-button (click)="addClick(form)" type="submit" cdkFocusInitial>Add</button>
+      <button mat-button (click)="addClick()" type="submit" [disabled]="form.invalid">Add</button>
     </div>
   </form>
 
