@@ -32,19 +32,24 @@ export class BoardComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit() {
-       this.sub1 = forkJoin([this.columnsService.getAll(), this.tasksService.getAll()])
-         .pipe(delay(1000))
-         .subscribe({
-           next:([response, response2]) => {
-             this.columns = response;
-             this.tasks = response2;
-             this.isLoaded = true
-             this.sortTasks = this.combination(this.tasks, this.columns);
-           },
-           error: err => {
-             console.error("Error", err)
-           }
-         });
+     this.taskSorting()
+
+  }
+
+  taskSorting() {
+    this.sub1 = forkJoin([this.columnsService.getAll(), this.tasksService.getAll()])
+      .pipe(delay(1000))
+      .subscribe({
+        next:([response, response2]) => {
+          this.columns = response;
+          this.tasks = response2;
+          this.isLoaded = true
+          this.sortTasks = this.combination(this.tasks, this.columns);
+        },
+        error: err => {
+          console.error("Error", err)
+        }
+      });
   }
 
   combination(tasks: TaskInterface[], columns: ColumnInterface[]): {[status: string]:TaskInterface[]} {
@@ -64,13 +69,11 @@ export class BoardComponent implements OnInit, OnDestroy{
 
     dialogRef.afterClosed().pipe(
       switchMap((formValue: any) => {
-        console.log('swich', formValue.value)
         return this.taskService.addTask(formValue.value.textInput, formValue.value.textArea, formValue.value.colStatus)
       })
     )
       .subscribe(() => {
-        this.ngOnInit()
-        console.log('The dialog was closed');
+        this.taskSorting()
       });
   }
 

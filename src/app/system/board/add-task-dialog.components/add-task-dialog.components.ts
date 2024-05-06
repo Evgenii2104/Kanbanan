@@ -55,9 +55,4 @@ export class AddTaskDialogComponents implements OnInit{
   onCancelClick(): void {
     this.dialogRef.close('empty');
   }
-
-  submitForm() {
-
-    //console.log('submitted', this.form)
-  }
 }
