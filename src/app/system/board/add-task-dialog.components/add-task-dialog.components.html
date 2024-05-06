@@ -1,0 +1,47 @@
+<mat-dialog-content>
+  <div>Column status</div>
+</mat-dialog-content>
+<mat-dialog-actions class="container">
+  <form class="content" [formGroup]="form">
+    <mat-form-field class="form-group">
+      <mat-label>Text input</mat-label>
+      <input
+        matInput
+        class="form-control"
+        formControlName="textInput"
+        type="text"
+      >
+    </mat-form-field>
+    <mat-form-field class="form-group">
+      <mat-label>Textarea</mat-label>
+      <textarea
+        matInput
+        type="texta"
+        class="form-control"
+        formControlName="textArea"
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field class="form-group">
+      <mat-label>
+        Status
+      </mat-label>
+      <mat-select
+        placeholder="status To Do"
+        class="form-control"
+        type="radio"
+        formControlName="colStatus"
+      >
+        <mat-option value="To do">To do</mat-option>
+        <mat-option value="In progress">In progress</mat-option>
+        <mat-option value="Done">Done</mat-option>
+        <mat-option value="delete">delete</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <button mat-button (click)="onCancelClick()">Cancel</button>
+      <button mat-button (click)="addClick()" type="submit" [disabled]="form.invalid">Add</button>
+    </div>
+  </form>
+
+
+</mat-dialog-actions>

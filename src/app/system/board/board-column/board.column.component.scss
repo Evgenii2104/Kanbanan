@@ -10,8 +10,12 @@
   color: rgb(209, 203, 203);
   background-color: rgb(48, 42, 42);
   padding: 2px 2px 20px 2px;
-  font-size: 20px
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .content{
   color: rgb(224, 222, 222);
 }
+

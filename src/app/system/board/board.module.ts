@@ -6,21 +6,27 @@ import {BoardColumnComponent} from "./board-column/board.column.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {BoardTaskComponent} from "./board-task/board.task.component";
-import {SystemModule} from "../system.module";
 import {LoaderComponent} from "../../core/loader/loader.component";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddTaskDialogComponents } from './add-task-dialog.components/add-task-dialog.components';
+
+
 
 @NgModule({
   imports: [
     CommonModule,
     BoardRoutingModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     BoardComponent,
     BoardColumnComponent,
     BoardTaskComponent,
-    LoaderComponent
+    LoaderComponent,
+    //AddTaskDialogComponents,
   ],
   exports: [
     BoardComponent,

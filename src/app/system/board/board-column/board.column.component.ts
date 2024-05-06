@@ -8,9 +8,9 @@ import {ColumnInterface} from "../../../core/interfaces/column.interface";
   styleUrls: ['board.column.component.scss']
 })
 
-export class BoardColumnComponent {
-  @Input() column: ColumnInterface
-  @Input() tasks: TaskInterface[]
+export class BoardColumnComponent{
+  @Input() column: ColumnInterface;
+  @Input() tasks: TaskInterface[];
 
-
+  constructor() {}
 }
