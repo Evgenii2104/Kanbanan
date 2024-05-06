@@ -19,6 +19,7 @@ export class BoardComponent implements OnInit, OnDestroy{
    columns: ColumnInterface[];
    tasks: TaskInterface[];
    sub1: Subscription;
+   sub2: Subscription
    sortTasks: {[status: string]:TaskInterface[]};
    isLoaded = false
 
@@ -26,30 +27,23 @@ export class BoardComponent implements OnInit, OnDestroy{
     private columnsService: ColumnsService,
     private tasksService: TasksService,
     public dialog: MatDialog,
-    private ref: ChangeDetectorRef,
-    private taskService: TasksService
   ) {
   }
 
   ngOnInit() {
-     this.taskSorting()
-
-  }
-
-  taskSorting() {
-    this.sub1 = forkJoin([this.columnsService.getAll(), this.tasksService.getAll()])
-      .pipe(delay(1000))
-      .subscribe({
-        next:([response, response2]) => {
-          this.columns = response;
-          this.tasks = response2;
-          this.isLoaded = true
-          this.sortTasks = this.combination(this.tasks, this.columns);
-        },
-        error: err => {
-          console.error("Error", err)
-        }
-      });
+       this.sub1 = forkJoin([this.columnsService.getAll(), this.tasksService.getAll()])
+         .pipe(delay(1000))
+         .subscribe({
+           next:([response, response2]) => {
+             this.columns = response;
+             this.tasks = response2;
+             this.isLoaded = true
+             this.sortTasks = this.combination(this.tasks, this.columns);
+           },
+           error: err => {
+             console.error("Error", err)
+           }
+         });
   }
 
   combination(tasks: TaskInterface[], columns: ColumnInterface[]): {[status: string]:TaskInterface[]} {
@@ -67,18 +61,26 @@ export class BoardComponent implements OnInit, OnDestroy{
   openDialog() {
     const dialogRef = this.dialog.open(AddTaskDialogComponents, { data: this.columns });
 
-    dialogRef.afterClosed().pipe(
+    this.sub2 = dialogRef.afterClosed().pipe(
       switchMap((formValue: any) => {
-        return this.taskService.addTask(formValue.value.textInput, formValue.value.textArea, formValue.value.colStatus)
+        console.log('swich', formValue.value)
+        return this.tasksService.addTask(formValue.value.textInput, formValue.value.textArea, formValue.value.colStatus)
+      }),
+      switchMap(() => {
+        return this.tasksService.getAll()
       })
-    )
-      .subscribe(() => {
-        this.taskSorting()
-      });
+    ).subscribe( {
+      next: data => {
+        this.tasks = data;
+        this.sortTasks = this.combination(this.tasks, this.columns);
+        },
+      error: err => {console.error("Error", err)}
+      })
   }
 
   ngOnDestroy() {
-    this.sub1.unsubscribe()
+    this.sub1.unsubscribe();
+    this.sub2.unsubscribe()
   }
 
 }
