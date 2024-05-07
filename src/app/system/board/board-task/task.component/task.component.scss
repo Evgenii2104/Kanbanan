@@ -1,0 +1,13 @@
+html, body{height: 100%}
+body{margin: 0;font-family: Roboto,"Helvetica Neue", sans-serif}
+.container{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgb(48, 42, 42);
+  color: rgb(209, 203, 203);
+  font-size: 25px;
+  padding: 35px;
+  height: 100%;
+}

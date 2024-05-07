@@ -3,7 +3,7 @@ import {NgModule} from "@angular/core";
 import {SystemComponent} from "./system.component";
 
 const routes: Routes = [
-  {path: 'system', component: SystemComponent}
+  {path: 'system/board', component: SystemComponent}
 ]
 @NgModule({
   imports: [RouterModule.forChild(routes)],

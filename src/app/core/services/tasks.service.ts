@@ -20,8 +20,8 @@ export class TasksService{
         title: title,
         description: description,
         status: status,
+        id: Date.now()
       }
-
     const url = environment.apiUrl + '/tasks';
     return this.http.post<any>(url, params)
   }
