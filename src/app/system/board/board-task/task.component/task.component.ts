@@ -1,7 +1,9 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
-import {TaskInterface} from "../../../../core/interfaces/task.interface";
+import {TasksService} from "../../../../core/services/tasks.service";
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'kb-task',
   templateUrl: 'task.component.html',
@@ -11,16 +13,24 @@ import {TaskInterface} from "../../../../core/interfaces/task.interface";
 export class TaskComponent implements OnInit{
 
   id: number;
-  title: string;
-  description: string;
-  status: string
-  constructor(private route: ActivatedRoute) {
+  task: any
+  constructor(
+    private route: ActivatedRoute,
+    private tasksService: TasksService,) {
   }
 
   ngOnInit() {
     this.id = +this.route.snapshot.params['id'];
-    this.title = this.route.snapshot.queryParams['title'];
-    this.description = this.route.snapshot.queryParams['description'];
-    this.status = this.route.snapshot.queryParams['status']
+    this.tasksService.getTask(this.id)
+      .pipe(untilDestroyed(this))
+      .subscribe({
+      next:(res) => {
+        this.task = res;
+        this.task = this.task[0]
+      },
+      error: err => {
+        console.error("Error", err)
+      }
+      })
   }
 }

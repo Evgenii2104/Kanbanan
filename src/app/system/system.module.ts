@@ -7,6 +7,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {BoardModule} from "./board/board.module";
 import {FormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
+import {AppComponent} from "../app.component";
 
 @NgModule({
   imports: [
@@ -20,7 +21,9 @@ import {MatDialogModule} from "@angular/material/dialog";
   ],
   declarations: [
     SystemComponent,
-  ]
+  ],
+  providers: [],
+  bootstrap: [SystemComponent]
 })
 
 export class SystemModule {
