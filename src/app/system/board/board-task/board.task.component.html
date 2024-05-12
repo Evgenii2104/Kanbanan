@@ -1,6 +1,8 @@
 <div class="task" >
   <div class="container">
-    <mat-card>
+    <mat-card
+      [routerLink]="['board', task.id]"
+    >
       <div class="title">{{task.title}}</div>
       <div class="description">
         <mat-card-content>

@@ -10,6 +10,7 @@ import {LoaderComponent} from "../../core/loader/loader.component";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddTaskDialogComponents } from './add-task-dialog.components/add-task-dialog.components';
+import {TaskComponent} from "./board-task/task.component/task.component";
 
 
 
@@ -26,12 +27,14 @@ import { AddTaskDialogComponents } from './add-task-dialog.components/add-task-d
     BoardColumnComponent,
     BoardTaskComponent,
     LoaderComponent,
+    TaskComponent
     //AddTaskDialogComponents,
   ],
   exports: [
     BoardComponent,
     BoardColumnComponent,
-    LoaderComponent
+    LoaderComponent,
+    TaskComponent
   ],
   providers: []
 })

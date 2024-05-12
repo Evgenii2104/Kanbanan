@@ -63,7 +63,6 @@ export class BoardComponent implements OnInit, OnDestroy{
 
     this.sub2 = dialogRef.afterClosed().pipe(
       switchMap((formValue: any) => {
-        console.log('swich', formValue.value)
         return this.tasksService.addTask(formValue.value.textInput, formValue.value.textArea, formValue.value.colStatus)
       }),
       switchMap(() => {
@@ -80,7 +79,7 @@ export class BoardComponent implements OnInit, OnDestroy{
 
   ngOnDestroy() {
     this.sub1.unsubscribe();
-    this.sub2.unsubscribe()
+    this.sub2?.unsubscribe()
   }
 
 }
