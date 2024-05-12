@@ -4,7 +4,7 @@ import {SystemComponent} from "./system.component";
 import {BoardComponent} from "./board/board.component";
 
 const routes: Routes = [
-  {path: 'system', component: SystemComponent, children:[
+  {path: '', component: SystemComponent, children:[
       {path: '', redirectTo: 'board', pathMatch: 'full'},
       {path: 'board', component: BoardComponent}
     ]}
