@@ -1,9 +1,18 @@
-<div class="task" >
+<div cdkDropListGroup>
+<div
+  class="task"
+  cdkDrag
+  cdkDropListSortingDisabled
+
+>
   <div class="container">
-    <mat-card
-      [routerLink]="['board', task.id]"
-    >
-      <div class="title">{{task.title}}</div>
+    <mat-card>
+      <div
+        class="title"
+        [routerLink]="['board', task.id]"
+      >
+        {{task.title}}
+      </div>
       <div class="description">
         <mat-card-content>
           <p>
@@ -14,4 +23,5 @@
       <div class="status">{{task.status}}</div>
     </mat-card>
   </div>
+</div>
 </div>

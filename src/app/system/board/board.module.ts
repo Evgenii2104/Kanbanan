@@ -11,6 +11,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddTaskDialogComponents } from './add-task-dialog.components/add-task-dialog.components';
 import {TaskComponent} from "./board-task/task.component/task.component";
+import {CdkDrag, CdkDropList, CdkDropListGroup} from "@angular/cdk/drag-drop";
 
 
 
@@ -20,7 +21,9 @@ import {TaskComponent} from "./board-task/task.component/task.component";
     BoardRoutingModule,
     MatCardModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    CdkDrag,
+    CdkDropListGroup, CdkDropList
   ],
   declarations: [
     BoardComponent,
